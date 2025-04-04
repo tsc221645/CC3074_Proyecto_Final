@@ -1,0 +1,23 @@
+DataFrame Summary Report Of olist_order_payments_dataset
+================================================================================
+
+Get Null Count
+--------------
+No information to report
+
+Get Types
+---------
+               col_name data_type
+0              order_id    object
+1    payment_sequential     int64
+2          payment_type    object
+3  payment_installments     int64
+4         payment_value   float64
+
+Get Row And Col Count
+---------------------
+   num_cols  num_rows
+0         5    103886
+
+================================================================================
+End

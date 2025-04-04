@@ -1,0 +1,23 @@
+DataFrame Summary Report Of olist_geolocation_dataset
+================================================================================
+
+Get Null Count
+--------------
+No information to report
+
+Get Types
+---------
+                      col_name data_type
+0  geolocation_zip_code_prefix     int64
+1              geolocation_lat   float64
+2              geolocation_lng   float64
+3             geolocation_city    object
+4            geolocation_state    object
+
+Get Row And Col Count
+---------------------
+   num_cols  num_rows
+0         5   1000163
+
+================================================================================
+End

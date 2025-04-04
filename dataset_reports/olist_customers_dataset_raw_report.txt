@@ -1,0 +1,23 @@
+DataFrame Summary Report Of olist_customers_dataset
+================================================================================
+
+Get Null Count
+--------------
+No information to report
+
+Get Types
+---------
+                   col_name data_type
+0               customer_id    object
+1        customer_unique_id    object
+2  customer_zip_code_prefix     int64
+3             customer_city    object
+4            customer_state    object
+
+Get Row And Col Count
+---------------------
+   num_cols  num_rows
+0         5     99441
+
+================================================================================
+End

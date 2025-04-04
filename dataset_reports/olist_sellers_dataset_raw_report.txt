@@ -1,0 +1,22 @@
+DataFrame Summary Report Of olist_sellers_dataset
+================================================================================
+
+Get Null Count
+--------------
+No information to report
+
+Get Types
+---------
+                 col_name data_type
+0               seller_id    object
+1  seller_zip_code_prefix     int64
+2             seller_city    object
+3            seller_state    object
+
+Get Row And Col Count
+---------------------
+   num_cols  num_rows
+0         4      3095
+
+================================================================================
+End

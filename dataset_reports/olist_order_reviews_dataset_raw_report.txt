@@ -1,0 +1,27 @@
+DataFrame Summary Report Of olist_order_reviews_dataset
+================================================================================
+
+Get Null Count
+--------------
+                        Nulls  Percentage
+review_comment_title    87656       88.34
+review_comment_message  58247       58.70
+
+Get Types
+---------
+                  col_name data_type
+0                review_id    object
+1                 order_id    object
+2             review_score     int64
+3     review_comment_title    object
+4   review_comment_message    object
+5     review_creation_date    object
+6  review_answer_timestamp    object
+
+Get Row And Col Count
+---------------------
+   num_cols  num_rows
+0         7     99224
+
+================================================================================
+End

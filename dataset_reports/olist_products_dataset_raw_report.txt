@@ -1,0 +1,35 @@
+DataFrame Summary Report Of olist_products_dataset
+================================================================================
+
+Get Null Count
+--------------
+                            Nulls  Percentage
+product_category_name         610        1.85
+product_name_lenght           610        1.85
+product_description_lenght    610        1.85
+product_photos_qty            610        1.85
+product_weight_g                2        0.01
+product_length_cm               2        0.01
+product_height_cm               2        0.01
+product_width_cm                2        0.01
+
+Get Types
+---------
+                     col_name data_type
+0                  product_id    object
+1       product_category_name    object
+2         product_name_lenght   float64
+3  product_description_lenght   float64
+4          product_photos_qty   float64
+5            product_weight_g   float64
+6           product_length_cm   float64
+7           product_height_cm   float64
+8            product_width_cm   float64
+
+Get Row And Col Count
+---------------------
+   num_cols  num_rows
+0         9     32951
+
+================================================================================
+End

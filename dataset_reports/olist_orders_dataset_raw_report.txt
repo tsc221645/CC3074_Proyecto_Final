@@ -1,0 +1,29 @@
+DataFrame Summary Report Of olist_orders_dataset
+================================================================================
+
+Get Null Count
+--------------
+                               Nulls  Percentage
+order_delivered_customer_date   2965        2.98
+order_delivered_carrier_date    1783        1.79
+order_approved_at                160        0.16
+
+Get Types
+---------
+                        col_name data_type
+0                       order_id    object
+1                    customer_id    object
+2                   order_status    object
+3       order_purchase_timestamp    object
+4              order_approved_at    object
+5   order_delivered_carrier_date    object
+6  order_delivered_customer_date    object
+7  order_estimated_delivery_date    object
+
+Get Row And Col Count
+---------------------
+   num_cols  num_rows
+0         8     99441
+
+================================================================================
+End
