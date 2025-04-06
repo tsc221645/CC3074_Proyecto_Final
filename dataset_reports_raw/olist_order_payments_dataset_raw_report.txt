@@ -19,5 +19,31 @@ Get Row And Col Count
    num_cols  num_rows
 0         5    103886
 
+Get Descriptive Stats
+---------------------
+                         count        mean         std  min    25%    50%       75%       max
+payment_sequential    103886.0    1.092679    0.706584  1.0   1.00    1.0    1.0000     29.00
+payment_installments  103886.0    2.853349    2.687051  0.0   1.00    1.0    4.0000     24.00
+payment_value         103886.0  154.100380  217.494064  0.0  56.79  100.0  171.8375  13664.08
+
+Get Top Frequent
+----------------
+    Column Name                         Top Value  Frequency
+0      order_id  fa65dad1b0e818e3ccc5cb0e39231352         29
+1      order_id  ccf804e764ed5650cd8759557269dc13         26
+2      order_id  285c2e15bebd4ac83635ccc563dc71f4         22
+3  payment_type                       credit_card      76795
+4  payment_type                            boleto      19784
+5  payment_type                           voucher       5775
+
+Get Unique
+----------
+                      Unique Values
+order_id                      99440
+payment_sequential               29
+payment_type                      5
+payment_installments             24
+payment_value                 29077
+
 ================================================================================
 End
