@@ -31,12 +31,12 @@ review_score  99224.0  4.086421  1.347579  1.0  4.0  5.0  5.0  5.0
 Get Top Frequent
 ----------------
                 Column Name                         Top Value  Frequency
-0                 review_id  08528f70f579f0c830189efc523d2182          3
-1                 review_id  c444278834184f72b1484dfe47de7f97          3
-2                 review_id  39b4603793c1c7f5f36d809b4a218664          3
-3                  order_id  df56136b8031ecd28e200bb18e6ddb2e          3
-4                  order_id  c88b1d1b157a9999ce368f218a407141          3
-5                  order_id  03c939fd7fd3b38f8485a0f95798f1f6          3
+0                 review_id  4548534449b1f572e357211b90724f1b          3
+1                 review_id  44e9f871226d8a130de3fc39dfbdf0c5          3
+2                 review_id  2d6ac45f859465b5c185274a1c929637          3
+3                  order_id  03c939fd7fd3b38f8485a0f95798f1f6          3
+4                  order_id  8e17072ec97ce29f0e1f111e598b0c85          3
+5                  order_id  c88b1d1b157a9999ce368f218a407141          3
 6      review_comment_title                         Recomendo        423
 7      review_comment_title                         recomendo        345
 8      review_comment_title                               Bom        293
@@ -47,8 +47,8 @@ Get Top Frequent
 13     review_creation_date               2018-08-28 00:00:00        452
 14     review_creation_date               2017-12-20 00:00:00        440
 15  review_answer_timestamp               2017-06-15 23:21:05          4
-16  review_answer_timestamp               2017-09-02 12:13:03          3
-17  review_answer_timestamp               2018-02-26 15:53:18          3
+16  review_answer_timestamp               2017-08-30 11:18:29          3
+17  review_answer_timestamp               2017-11-02 00:11:06          3
 
 Get Unique
 ----------
