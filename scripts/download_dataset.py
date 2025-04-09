@@ -9,12 +9,21 @@ import os
 import kagglehub
 import shutil
 
-data_dir = "./data"
+# Obtener ruta absoluta del directorio del script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Ruta raíz del proyecto (sube un nivel desde /scripts)
+ROOT_DIR = os.path.dirname(SCRIPT_DIR)
+
+# Usar carpeta "data" en la raíz del proyecto
+data_dir = os.path.join(ROOT_DIR, "data")
 os.makedirs(data_dir, exist_ok=True)
+
 data_set_kaggle = "olistbr/brazilian-ecommerce"
 
 # Ruta de la caché de kagglehub
 cache_dir = os.path.expanduser(f"~/.cache/kagglehub/datasets/{data_set_kaggle}")
+
 
 # Si existe la caché, eliminarla antes de descargar
 if os.path.exists(cache_dir):
