@@ -1,0 +1,49 @@
+DataFrame Summary Report Of olist_order_payments_dataset_clean
+================================================================================
+
+Get Null Count
+--------------
+No information to report
+
+Get Types
+---------
+               col_name data_type
+0              order_id    object
+1    payment_sequential   float64
+2          payment_type    object
+3  payment_installments   float64
+4         payment_value   float64
+
+Get Row And Col Count
+---------------------
+   num_cols  num_rows
+0         5    100763
+
+Get Descriptive Stats
+---------------------
+                         count        mean         std  min    25%    50%     75%       max
+payment_sequential    100763.0    1.088366    0.652706  1.0   1.00    1.0    1.00     26.00
+payment_installments  100763.0    2.851592    2.684310  0.0   1.00    1.0    4.00     24.00
+payment_value         100763.0  153.065938  214.444900  0.0  56.78  100.0  171.29  13664.08
+
+Get Top Frequent
+----------------
+    Column Name                         Top Value  Frequency
+0      order_id  ccf804e764ed5650cd8759557269dc13         26
+1      order_id  285c2e15bebd4ac83635ccc563dc71f4         22
+2      order_id  895ab968e7bb0d5659d16cd74cd1650c         21
+3  payment_type                       credit_card      74593
+4  payment_type                            boleto      19191
+5  payment_type                           voucher       5493
+
+Get Unique
+----------
+                      Unique Values
+order_id                      96484
+payment_sequential               26
+payment_type                      4
+payment_installments             24
+payment_value                 28548
+
+================================================================================
+End

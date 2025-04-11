@@ -1,0 +1,35 @@
+=======================================
+
+Dataset shape: 1000163 rows, 5 columns
+
+=======================================
+
+Dataset preview (first 5 rows):
+ geolocation_zip_code_prefix  geolocation_lat  geolocation_lng geolocation_city geolocation_state
+                        1037       -23.545621       -46.639292        sao paulo                SP
+                        1046       -23.546081       -46.644820        sao paulo                SP
+                        1046       -23.546129       -46.642951        sao paulo                SP
+                        1041       -23.544392       -46.639499        sao paulo                SP
+                        1035       -23.541578       -46.641607        sao paulo                SP
+
+=======================================
+
+Null values by column:
+  None
+
+=======================================
+
+Total null values: 0
+Rows with at least one null value: 0
+Total duplicated rows: 261831
+
+=======================================
+
+Columns in the dataset:
+    geolocation_zip_code_prefix
+    geolocation_lat
+    geolocation_lng
+    geolocation_city
+    geolocation_state
+
+=======================================

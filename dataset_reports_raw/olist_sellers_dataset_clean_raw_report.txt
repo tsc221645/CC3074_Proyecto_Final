@@ -1,0 +1,48 @@
+DataFrame Summary Report Of olist_sellers_dataset_clean
+================================================================================
+
+Get Null Count
+--------------
+No information to report
+
+Get Types
+---------
+                 col_name data_type
+0               seller_id    object
+1  seller_zip_code_prefix     int64
+2             seller_city    object
+3            seller_state    object
+
+Get Row And Col Count
+---------------------
+   num_cols  num_rows
+0         4      2970
+
+Get Descriptive Stats
+---------------------
+                         count          mean           std     min     25%      50%      75%      max
+seller_zip_code_prefix  2970.0  32472.551515  32757.930234  1001.0  7171.0  15014.5  70553.5  99730.0
+
+Get Top Frequent
+----------------
+    Column Name                         Top Value  Frequency
+0     seller_id  f3862c2188522d89860c38a3ea8b550d          1
+1     seller_id  3504c0cb71d7fa48d967e0e4c94d59d9          1
+2     seller_id  289cdb325fb7e7f891c38608bf9e0962          1
+3   seller_city                         sao paulo        661
+4   seller_city                          curitiba        124
+5   seller_city                    rio de janeiro         92
+6  seller_state                                SP       1769
+7  seller_state                                PR        335
+8  seller_state                                MG        236
+
+Get Unique
+----------
+                        Unique Values
+seller_id                        2970
+seller_zip_code_prefix           2168
+seller_city                       595
+seller_state                       22
+
+================================================================================
+End

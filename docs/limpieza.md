@@ -39,34 +39,90 @@ Se aplicaron las siguientes estrategias:
 
 ### 1. **Imputación de coordenadas**  
 
-Por promedio de latitud y longitud agrupado por `customer_zip_code_prefix` y `seller_zip_code_prefix`.
+Se rellenaron latitudes y longitudes con el promedio por `customer_zip_code_prefix` y `seller_zip_code_prefix`. Esto preserva la coherencia espacial sin introducir valores arbitrarios.
 
 ### 2. **Imputación de fechas faltantes**  
 
-- `order_approved_at` con `order_purchase_timestamp`
-- `order_delivered_customer_date` con `order_estimated_delivery_date` (si `status` es `delivered`)
-- `order_delivered_carrier_date` con `order_approved_at`
+- `order_approved_at`: con `order_purchase_timestamp`, ya que la aprobación ocurre después de la compra.
+- `order_delivered_customer_date`: con `order_estimated_delivery_date`, si el pedido está marcado como `delivered`, asumiendo que se entregó en la fecha estimada.
+- `order_delivered_carrier_date`: con `order_approved_at`, asumiendo que el paquete fue despachado justo después de la aprobación.
 
 ### 3. **Imputación de valores numéricos**
 
-Se utilizaron medias globales para columnas como precio, peso y dimensiones del producto.
+Se usaron medias globales para valores como precio, peso, dimensiones, etc., bajo la suposición de que siguen una distribución continua y su media representa una buena estimación.
 
 ### 4. **Valores categóricos y texto**
 
-- Categorías vacías se llenaron con `"unknown"`
-- Texto de reseñas (`review_comment_title`, `review_comment_message`) con `""` vacío
+- `payment_type`: se imputó con la moda (más frecuente).
+- `payment_installments`: con 1, como valor mínimo válido.
+- `product_category_name` y `product_category_name_english`: con "unknown" para mantener la consistencia semántica.
+- Campos de texto (`review_comment_title`, `review_comment_message`): con texto vacío `""`.
 
 ### 5. **Eliminación de filas incompletas**
 
-Filas sin `seller_id`, `product_id`, `order_item_id`, o sin `order_delivered_customer_date` fueron eliminadas por ser críticas para el análisis.
+Se eliminaron filas que no tienen:
 
-### 6. **Columnas auxiliares eliminadas**
+- `seller_id`
+- `product_id`
+- `order_item_id`
+- `order_delivered_customer_date`
 
-Las columnas `geolocation_zip_code_prefix_x` y `geolocation_zip_code_prefix_y` fueron usadas para imputar coordenadas, y luego eliminadas por ser técnicas.
+Estas columnas son **críticas** para análisis como logística, ventas, entrega y satisfacción. Si no hay `seller_id` o `product_id`, no se puede trazar el pedido a un vendedor o producto. Si no hay `order_delivered_customer_date`, no se puede analizar el cumplimiento de entrega.
 
-### 7. **Normalización de reseñas**
+**Resultado:** Se eliminaron 3,413 filas, equivalente al **2.86 %** del dataset original (de 119,143 a 115,730 filas).
 
-Fechas de reseña (`review_creation_date`, `review_answer_timestamp`) fueron imputadas usando `order_delivered_customer_date` si no existían.
+**Nota sobre `order_status`:**  
+Como consecuencia de esta limpieza, el conjunto resultante conserva únicamente órdenes en estado `delivered` y `canceled`. Las órdenes en estados como `shipped`, `processing`, `created`, `approved`, `invoiced` y `unavailable` fueron eliminadas porque no cuentan con información completa para análisis logístico (por ejemplo, fechas de entrega o identificadores de producto/vendedor).
+
+**Estados no finales eliminados:**
+
+- `created` → creado
+- `approved` → aprobado
+- `invoiced` → facturado
+- `processing` → procesando
+- `shipped` → enviado
+
+**Estados finales conservados:**
+
+- `delivered` → entregado
+- `canceled` → cancelado
+
+Esto garantiza que el análisis logístico posterior se base únicamente en pedidos que completaron su ciclo o que fueron cancelados.
+
+**Resultado:** Se eliminaron 3,413 filas, equivalente al **2.86 %** del dataset original (de 119,143 a 115,730 filas).
+
+### 6. **Normalización de reseñas**
+
+Fechas de reseñas (`review_creation_date`, `review_answer_timestamp`) fueron imputadas con `order_delivered_customer_date` si estaban ausentes, asegurando coherencia temporal.
+
+### 7. **Normalización de `payment_sequential`**
+
+Se imputó con 1 en caso de ausencia, representando el primer intento de pago.
+
+### 8. **Limpieza para `geolocation`**
+
+El archivo `olist_geolocation_dataset.csv` contiene datos geográficos por prefijo de código postal (`geolocation_zip_code_prefix`), incluyendo coordenadas (`lat`, `lng`), ciudad y estado. Aunque no contiene valores nulos, **presenta un número significativo de filas duplicadas**.
+
+#### ¿Por qué hay duplicados?
+
+Cada fila representa una geolocalización vinculada a un ZIP code. Los duplicados se deben a que múltiples clientes o pedidos pueden compartir el mismo ZIP, y por tanto, la misma latitud y longitud se registra varias veces.
+
+#### ¿Representan información adicional?
+
+No. Estos duplicados **no contienen información nueva**, ya que todos los campos (ZIP, coordenadas, ciudad y estado) son exactamente iguales. Su presencia **no aporta valor analítico** adicional y **no representa eventos distintos**, solo repeticiones.
+
+#### ¿Afecta eliminarlos?
+
+No. Para el análisis geoespacial y logístico que se desea realizar, lo que se necesita es una **asociación única entre cada ZIP y sus coordenadas**. Por tanto, eliminar duplicados:
+
+- **No elimina información relevante**.
+- **No afecta el cálculo de distancias ni la identificación de zonas**.
+- **Reduce el tamaño del dataset y mejora la eficiencia de procesamiento**.
+
+#### Resultado de la limpieza
+
+- Se eliminaron **261,831 filas duplicadas**, lo cual representa un **26.18 %** del dataset original de `1,000,163` filas.
+- El dataset limpio contiene **738,332 filas únicas**, sin nulos ni duplicados.
 
 ## Generación del Dataset Limpio
 
@@ -99,5 +155,5 @@ Cada uno se guarda en la carpeta `../data_clean/`.
 - `olist_order_payments_dataset_clean.csv`
 - `olist_products_dataset_clean.csv`
 - `product_category_name_translation_clean.csv`
-- `data_quality_report.txt`: Reporte previo
-- `data_quality_report_imputed.txt`: Reporte después de limpiar
+- `data_quality_report.txt`: Reporte previo a limpieza
+- `data_quality_report_imputed.txt`: Reporte posterior a limpieza con imputaciones

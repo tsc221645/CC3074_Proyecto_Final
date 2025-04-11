@@ -1,0 +1,53 @@
+DataFrame Summary Report Of olist_customers_dataset_clean
+================================================================================
+
+Get Null Count
+--------------
+No information to report
+
+Get Types
+---------
+                   col_name data_type
+0               customer_id    object
+1        customer_unique_id    object
+2  customer_zip_code_prefix     int64
+3             customer_city    object
+4            customer_state    object
+
+Get Row And Col Count
+---------------------
+   num_cols  num_rows
+0         5     96484
+
+Get Descriptive Stats
+---------------------
+                            count          mean           std     min      25%      50%      75%      max
+customer_zip_code_prefix  96484.0  35197.954625  29839.520251  1003.0  11355.0  24435.0  59056.0  99980.0
+
+Get Top Frequent
+----------------
+           Column Name                         Top Value  Frequency
+0          customer_id  edb027a75a1449115f6b43211ae02a24          1
+1          customer_id  9ef432eb6251297304e76186b10a928d          1
+2          customer_id  b0830fb4747a6c6d20dea0b8c802d7ef          1
+3   customer_unique_id  8d50f5eadf50201ccdcedfb9e2ac8455         15
+4   customer_unique_id  3e43e6105506432c953e165fb2acf44c          9
+5   customer_unique_id  ca77025e7201e3b30c44b472ff346268          7
+6        customer_city                         sao paulo      15046
+7        customer_city                    rio de janeiro       6604
+8        customer_city                    belo horizonte       2697
+9       customer_state                                SP      40502
+10      customer_state                                RJ      12353
+11      customer_state                                MG      11355
+
+Get Unique
+----------
+                          Unique Values
+customer_id                       96484
+customer_unique_id                93364
+customer_zip_code_prefix          14889
+customer_city                      4085
+customer_state                       27
+
+================================================================================
+End

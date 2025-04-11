@@ -1,0 +1,77 @@
+DataFrame Summary Report Of olist_orders_dataset_clean
+================================================================================
+
+Get Null Count
+--------------
+No information to report
+
+Get Types
+---------
+                        col_name data_type
+0                       order_id    object
+1                    customer_id    object
+2                   order_status    object
+3       order_purchase_timestamp    object
+4              order_approved_at    object
+5   order_delivered_carrier_date    object
+6  order_delivered_customer_date    object
+7  order_estimated_delivery_date    object
+
+Get Row And Col Count
+---------------------
+   num_cols  num_rows
+0         8     96484
+
+Get Descriptive Stats
+---------------------
+                               count unique                               top   freq
+order_id                       96484  96484  66dea50a8b16d9b4dee7af250b4be1a5      1
+customer_id                    96484  96484  edb027a75a1449115f6b43211ae02a24      1
+order_status                   96484      2                         delivered  96478
+order_purchase_timestamp       96484  95962               2017-11-20 11:46:30      3
+order_approved_at              96484  88294               2018-02-27 04:31:10      9
+order_delivered_carrier_date   96484  80114               2018-05-09 15:48:00     47
+order_delivered_customer_date  96484  95671               2018-05-14 20:02:44      3
+order_estimated_delivery_date  96484    445               2017-12-20 00:00:00    507
+
+Get Top Frequent
+----------------
+                      Column Name                         Top Value  Frequency
+0                        order_id  66dea50a8b16d9b4dee7af250b4be1a5          1
+1                        order_id  e481f51cbdc54678b7cc49136f2d6af7          1
+2                        order_id  53cdb2fc8bc7dce0b6741e2150273451          1
+3                     customer_id  edb027a75a1449115f6b43211ae02a24          1
+4                     customer_id  9ef432eb6251297304e76186b10a928d          1
+5                     customer_id  b0830fb4747a6c6d20dea0b8c802d7ef          1
+6                    order_status                         delivered      96478
+7                    order_status                          canceled          6
+8        order_purchase_timestamp               2017-11-20 11:46:30          3
+9        order_purchase_timestamp               2018-08-02 12:06:09          3
+10       order_purchase_timestamp               2018-03-31 15:08:21          3
+11              order_approved_at               2018-02-27 04:31:10          9
+12              order_approved_at               2017-12-05 10:30:42          7
+13              order_approved_at               2017-11-07 07:30:38          7
+14   order_delivered_carrier_date               2018-05-09 15:48:00         47
+15   order_delivered_carrier_date               2018-05-10 18:29:00         32
+16   order_delivered_carrier_date               2018-05-07 12:31:00         21
+17  order_delivered_customer_date               2018-05-14 20:02:44          3
+18  order_delivered_customer_date               2016-10-27 17:32:07          3
+19  order_delivered_customer_date               2018-05-08 23:38:46          3
+20  order_estimated_delivery_date               2017-12-20 00:00:00        507
+21  order_estimated_delivery_date               2018-03-12 00:00:00        500
+22  order_estimated_delivery_date               2018-05-29 00:00:00        498
+
+Get Unique
+----------
+                               Unique Values
+order_id                               96484
+customer_id                            96484
+order_status                               2
+order_purchase_timestamp               95962
+order_approved_at                      88294
+order_delivered_carrier_date           80114
+order_delivered_customer_date          95671
+order_estimated_delivery_date            445
+
+================================================================================
+End

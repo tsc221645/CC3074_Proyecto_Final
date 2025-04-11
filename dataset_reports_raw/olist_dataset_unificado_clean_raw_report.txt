@@ -1,0 +1,199 @@
+DataFrame Summary Report Of olist_dataset_unificado_clean
+================================================================================
+
+Get Null Count
+--------------
+                         Nulls  Percentage
+review_comment_title    102146       88.26
+review_comment_message   67628       58.44
+
+Get Types
+---------
+                         col_name data_type
+0                        order_id    object
+1                     customer_id    object
+2                    order_status    object
+3        order_purchase_timestamp    object
+4               order_approved_at    object
+5    order_delivered_carrier_date    object
+6   order_delivered_customer_date    object
+7   order_estimated_delivery_date    object
+8              customer_unique_id    object
+9        customer_zip_code_prefix     int64
+10                  customer_city    object
+11                 customer_state    object
+12                  order_item_id   float64
+13                     product_id    object
+14                      seller_id    object
+15            shipping_limit_date    object
+16                          price   float64
+17                  freight_value   float64
+18         seller_zip_code_prefix     int64
+19                    seller_city    object
+20                   seller_state    object
+21                      review_id    object
+22                   review_score   float64
+23           review_comment_title    object
+24         review_comment_message    object
+25           review_creation_date    object
+26        review_answer_timestamp    object
+27             payment_sequential   float64
+28                   payment_type    object
+29           payment_installments   float64
+30                  payment_value   float64
+31          product_category_name    object
+32            product_name_lenght   float64
+33     product_description_lenght   float64
+34             product_photos_qty   float64
+35               product_weight_g   float64
+36              product_length_cm   float64
+37              product_height_cm   float64
+38               product_width_cm   float64
+39  product_category_name_english    object
+
+Get Row And Col Count
+---------------------
+   num_cols  num_rows
+0        40    115730
+
+Get Descriptive Stats
+---------------------
+                               count          mean           std      min       25%       50%       75%       max
+customer_zip_code_prefix    115730.0  35079.240698  29855.040318  1003.00  11310.00  24320.00  58804.00  99980.00
+order_item_id               115730.0      1.197045      0.701205     1.00      1.00      1.00      1.00     21.00
+price                       115730.0    119.909426    182.665763     0.85     39.90     74.90    132.90   6735.00
+freight_value               115730.0     19.981076     15.717997     0.00     13.08     16.28     21.16    409.68
+seller_zip_code_prefix      115730.0  24454.379573  27586.888043  1001.00   6429.00  13660.00  27930.00  99730.00
+review_score                115730.0      4.087229      1.345051     1.00      4.00      5.00      5.00      5.00
+payment_sequential          115730.0      1.091264      0.686708     1.00      1.00      1.00      1.00     26.00
+payment_installments        115730.0      2.940491      2.776027     0.00      1.00      2.00      4.00     24.00
+payment_value               115730.0    171.808106    265.631944     0.00     60.85    108.12    188.94  13664.08
+product_name_lenght         115730.0     48.801557      9.945999     5.00     43.00     51.00     57.00     76.00
+product_description_lenght  115730.0    784.863832    645.906042     4.00    348.00    608.00    977.00   3992.00
+product_photos_qty          115730.0      2.206369      1.705750     1.00      1.00      2.00      3.00     20.00
+product_weight_g            115730.0   2105.594608   3772.155375     0.00    300.00    700.00   1800.00  40425.00
+product_length_cm           115730.0     30.238584     16.124841     7.00     18.00     25.00     38.00    105.00
+product_height_cm           115730.0     16.580086     13.418655     2.00      8.00     13.00     20.00    105.00
+product_width_cm            115730.0     23.064828     11.730836     6.00     15.00     20.00     30.00    118.00
+
+Get Top Frequent
+----------------
+                      Column Name                         Top Value  Frequency
+0                        order_id  895ab968e7bb0d5659d16cd74cd1650c         63
+1                        order_id  fedcd9f7ccdc8cba3a18defedd1a5547         38
+2                        order_id  ccf804e764ed5650cd8759557269dc13         26
+3                     customer_id  270c23a11d024a44c896d1894b261a83         63
+4                     customer_id  13aa59158da63ba0e93ec6ac2c07aacb         38
+5                     customer_id  92cd3ec6e2d643d4ebd0e3d6238f69e2         26
+6                    order_status                         delivered     115723
+7                    order_status                          canceled          7
+8        order_purchase_timestamp               2017-08-08 20:26:31         63
+9        order_purchase_timestamp               2017-09-23 14:56:45         38
+10       order_purchase_timestamp               2017-06-07 12:05:10         26
+11              order_approved_at               2017-08-08 20:43:31         63
+12              order_approved_at               2017-09-25 17:44:41         38
+13              order_approved_at               2017-06-09 16:15:08         26
+14   order_delivered_carrier_date               2017-08-10 11:58:14         63
+15   order_delivered_carrier_date               2018-05-09 15:48:00         48
+16   order_delivered_carrier_date               2017-10-02 23:47:54         38
+17  order_delivered_customer_date               2017-08-14 12:46:18         63
+18  order_delivered_customer_date               2017-10-18 22:35:50         38
+19  order_delivered_customer_date               2017-06-22 16:04:46         26
+20  order_estimated_delivery_date               2017-12-20 00:00:00        647
+21  order_estimated_delivery_date               2018-03-12 00:00:00        602
+22  order_estimated_delivery_date               2018-03-13 00:00:00        597
+23             customer_unique_id  9a736b248f67d166d2fbb006bcb877c3         75
+24             customer_unique_id  6fbc7cdadbb522125f4b27ae9dee4060         38
+25             customer_unique_id  f9ae226291893fda10af7965268fb7f6         35
+26                  customer_city                         sao paulo      18301
+27                  customer_city                    rio de janeiro       8006
+28                  customer_city                    belo horizonte       3214
+29                 customer_state                                SP      48818
+30                 customer_state                                RJ      14966
+31                 customer_state                                MG      13497
+32                     product_id  aca2eb7d00ea1a7b8ebd4e68314663af        529
+33                     product_id  99a4788cb24856965c36a24e339b6058        516
+34                     product_id  422879e10f46682990de24d770e7f83d        508
+35                      seller_id  4a3ca9315b744ce9f8e9374361493884       2116
+36                      seller_id  6560211a19b47992c3666cc44a7e94c0       2093
+37                      seller_id  1f50f920176fa81dab994f9023523100       2011
+38            shipping_limit_date               2017-08-14 20:43:31         63
+39            shipping_limit_date               2017-10-05 17:44:41         38
+40            shipping_limit_date               2017-06-15 16:15:08         26
+41                    seller_city                         sao paulo      28649
+42                    seller_city                          ibitinga       8238
+43                    seller_city                          curitiba       3099
+44                   seller_state                                SP      82568
+45                   seller_state                                MG       9079
+46                   seller_state                                PR       8876
+47                      review_id                           missing        861
+48                      review_id  eef5dbca8d37dfce6db7d7b16dd0525e         63
+49                      review_id  7145a6f0d38ec713897856cbdcfcdb7f         38
+50           review_comment_title                         Recomendo        494
+51           review_comment_title                         recomendo        400
+52           review_comment_title                               Bom        327
+53         review_comment_message                         Muito bom        259
+54         review_comment_message                               Bom        207
+55         review_comment_message                         muito bom        137
+56           review_creation_date               2017-12-19 00:00:00        534
+57           review_creation_date               2018-05-22 00:00:00        521
+58           review_creation_date               2018-05-15 00:00:00        517
+59        review_answer_timestamp               2017-08-17 22:17:55         63
+60        review_answer_timestamp               2017-10-19 21:08:44         38
+61        review_answer_timestamp               2017-06-28 18:49:50         26
+62                   payment_type                       credit_card      85382
+63                   payment_type                            boleto      22505
+64                   payment_type                           voucher       6181
+65          product_category_name                   cama_mesa_banho      11814
+66          product_category_name                      beleza_saude       9818
+67          product_category_name                     esporte_lazer       8792
+68  product_category_name_english                    bed_bath_table      11814
+69  product_category_name_english                     health_beauty       9818
+70  product_category_name_english                    sports_leisure       8792
+
+Get Unique
+----------
+                               Unique Values
+order_id                               96484
+customer_id                            96484
+order_status                               2
+order_purchase_timestamp               95962
+order_approved_at                      88294
+order_delivered_carrier_date           80114
+order_delivered_customer_date          95671
+order_estimated_delivery_date            445
+customer_unique_id                     93364
+customer_zip_code_prefix               14889
+customer_city                           4085
+customer_state                            27
+order_item_id                             21
+product_id                             32216
+seller_id                               2970
+shipping_limit_date                    91350
+price                                   5859
+freight_value                           6924
+seller_zip_code_prefix                  2168
+seller_city                              595
+seller_state                              22
+review_id                              95654
+review_score                               5
+review_comment_title                    4365
+review_comment_message                 34445
+review_creation_date                    1273
+review_answer_timestamp                96142
+payment_sequential                        26
+payment_type                               4
+payment_installments                      24
+payment_value                          28548
+product_category_name                     74
+product_name_lenght                       66
+product_description_lenght              2945
+product_photos_qty                        20
+product_weight_g                        2172
+product_length_cm                        100
+product_height_cm                        103
+product_width_cm                          95
+product_category_name_english             72
+
+================================================================================
+End

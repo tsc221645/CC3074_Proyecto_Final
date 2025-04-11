@@ -1,0 +1,65 @@
+DataFrame Summary Report Of olist_order_reviews_dataset_clean
+================================================================================
+
+Get Null Count
+--------------
+                        Nulls  Percentage
+review_comment_title    85805       88.45
+review_comment_message  57908       59.69
+
+Get Types
+---------
+                  col_name data_type
+0                review_id    object
+1                 order_id    object
+2             review_score   float64
+3     review_comment_title    object
+4   review_comment_message    object
+5     review_creation_date    object
+6  review_answer_timestamp    object
+
+Get Row And Col Count
+---------------------
+   num_cols  num_rows
+0         7     97013
+
+Get Descriptive Stats
+---------------------
+                count      mean       std  min  25%  50%  75%  max
+review_score  97013.0  4.161205  1.282669  1.0  4.0  5.0  5.0  5.0
+
+Get Top Frequent
+----------------
+                Column Name                         Top Value  Frequency
+0                 review_id                           missing        646
+1                 review_id  44e9f871226d8a130de3fc39dfbdf0c5          3
+2                 review_id  ddc52555ca27b0fe67d5255147682d2d          3
+3                  order_id  c88b1d1b157a9999ce368f218a407141          3
+4                  order_id  df56136b8031ecd28e200bb18e6ddb2e          3
+5                  order_id  03c939fd7fd3b38f8485a0f95798f1f6          3
+6      review_comment_title                         Recomendo        423
+7      review_comment_title                         recomendo        341
+8      review_comment_title                               Bom        289
+9    review_comment_message                         Muito bom        230
+10   review_comment_message                               Bom        189
+11   review_comment_message                         muito bom        121
+12     review_creation_date               2017-12-19 00:00:00        450
+13     review_creation_date               2018-08-28 00:00:00        449
+14     review_creation_date               2017-12-20 00:00:00        425
+15  review_answer_timestamp               2017-06-15 23:21:05          4
+16  review_answer_timestamp               2017-09-05 15:27:17          3
+17  review_answer_timestamp               2017-09-08 00:24:52          3
+
+Get Unique
+----------
+                         Unique Values
+review_id                        95654
+order_id                         96484
+review_score                         5
+review_comment_title              4365
+review_comment_message           34445
+review_creation_date              1273
+review_answer_timestamp          96142
+
+================================================================================
+End
