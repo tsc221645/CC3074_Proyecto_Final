@@ -3,9 +3,7 @@ DataFrame Summary Report Of olist_dataset_unificado_clean
 
 Get Null Count
 --------------
-                         Nulls  Percentage
-review_comment_title    102146       88.26
-review_comment_message   67628       58.44
+No information to report
 
 Get Types
 ---------
@@ -129,12 +127,12 @@ Get Top Frequent
 47                      review_id                           missing        861
 48                      review_id  eef5dbca8d37dfce6db7d7b16dd0525e         63
 49                      review_id  7145a6f0d38ec713897856cbdcfcdb7f         38
-50           review_comment_title                         Recomendo        494
-51           review_comment_title                         recomendo        400
-52           review_comment_title                               Bom        327
-53         review_comment_message                         Muito bom        259
-54         review_comment_message                               Bom        207
-55         review_comment_message                         muito bom        137
+50           review_comment_title                        <IMPUTADO>     102146
+51           review_comment_title                         Recomendo        494
+52           review_comment_title                         recomendo        400
+53         review_comment_message                        <IMPUTADO>      67628
+54         review_comment_message                         Muito bom        259
+55         review_comment_message                               Bom        207
 56           review_creation_date               2017-12-19 00:00:00        534
 57           review_creation_date               2018-05-22 00:00:00        521
 58           review_creation_date               2018-05-15 00:00:00        517
@@ -177,8 +175,8 @@ seller_city                              595
 seller_state                              22
 review_id                              95654
 review_score                               5
-review_comment_title                    4365
-review_comment_message                 34445
+review_comment_title                    4366
+review_comment_message                 34446
 review_creation_date                    1273
 review_answer_timestamp                96142
 payment_sequential                        26
