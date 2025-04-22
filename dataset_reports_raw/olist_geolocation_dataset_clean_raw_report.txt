@@ -31,7 +31,7 @@ Get Top Frequent
          Column Name       Top Value  Frequency
 0   geolocation_city       sao paulo      79927
 1   geolocation_city  rio de janeiro      35177
-2   geolocation_city       s„o paulo      19718
+2   geolocation_city       s√£o paulo      19718
 3  geolocation_state              SP     285976
 4  geolocation_state              MG     101353
 5  geolocation_state              RJ      78836
