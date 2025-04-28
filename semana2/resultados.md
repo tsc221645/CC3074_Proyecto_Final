@@ -1,85 +1,105 @@
 # Regresiones
 
-## Lineal
+## 1. Regresión Lineal
 
-### Interpretación de los Resultados
+### Interpretación de Resultados
 
 - **$R^2$ Score: 0.08**
-  - Solo **el 8% de la variabilidad** en los días de retraso (`delivery_diff_days`) es explicada por nuestro modelo lineal.
-  - **Conclusión**: El modelo **no capta bien la relación** entre las variables independientes y la variable objetivo.
+  - Solo **el 8%** de la variabilidad de los días de retraso (`delivery_diff_days`) es explicada.
+  - **Conclusión**: **Muy mala capacidad predictiva**; la relación no es lineal.
 
-- **MSE (Error cuadrático medio): 96.76**
-  - En promedio, el **error de predicción** de los días de retraso es **de casi 10 días** (ya que $\sqrt{96} \approx 9.8$).
-  - **Conclusión**: Los errores son considerables para el problema que buscamos resolver.
+- **MSE: 96.76**
+  - El **error promedio** es de casi **10 días** ($\sqrt{96} \approx 9.8$ días).
+  - **Conclusión**: El error es **muy grande** para ser útil en predicción real.
 
-### Justificación basada en las gráficas
+### Análisis Gráfico
 
-1. **Dispersión Reales vs Predichos**
-   - Los puntos **no siguen la línea roja ideal** (donde predicción = realidad).
-   - **Mucho ruido y dispersión**, lo que indica que **la relación no es lineal**.
+- **Dispersión real vs predicho**: Alta dispersión y ruido.  
+- **Histograma de residuos**: Centrado en 0 pero colas largas.
+- **Errores vs predicciones**: Heterocedasticidad (errores dispersos a medida que cambia el valor predicho).
 
-2. **Histograma de Residuos**
-   - Aunque los errores están **centrados en 0** (lo cual es bueno), hay una **larga cola** (outliers).
-   - **Conclusión**: Hay **errores grandes** en algunas predicciones, afectando la calidad del modelo.
+## 2. XGBoost
 
-3. **Errores vs Predicciones**
-   - No hay **patrón sistemático claro** (lo cual es bueno), pero **se nota una varianza heterogénea**: conforme cambia el valor predicho, **los errores se dispersan más**.
-   - **Conclusión**: **Violamos el supuesto de homocedasticidad** requerido para una regresión lineal.
-
-## XGBoost
-
-### Interpretación de los Resultados
+### Interpretación de Resultados
 
 - **$R^2$ Score: 0.165**
-  - XGBoost explica **el 16.5% de la variabilidad** en `delivery_diff_days`.
-  - **Conclusión**: Aunque el resultado es **mejor que la regresión lineal**, **sigue siendo bajo** para un modelo útil en producción.
-
+  - Explica **solo 16.5%** de la variabilidad.  
 - **MSE: 87.89**
-  - El **error cuadrático medio** disminuyó ligeramente respecto a la regresión lineal.
-  - **Conclusión**: XGBoost **mejora el ajuste**, pero no resuelve el problema de raíz.
+  - Error medio aún **alto** (~9.4 días).
 
-### Justificación basada en las gráficas
+### Análisis Gráfico
 
-1. **Dispersión Reales vs Predichos**
-   - Aún se observa **dispersión** importante, aunque los predichos **se agrupan ligeramente mejor** cerca de la línea ideal.
+- **Mejor que la regresión lineal**, pero **la dispersión de errores persiste**.
+- **Menos outliers extremos**, pero **no logra capturar la dinámica real** de los retrasos.
 
-2. **Histograma de Residuos**
-   - Distribución **más centrada** y **con menos dispersión extrema** comparado con la regresión lineal.
-   - **Conclusión**: **XGBoost maneja mejor los errores grandes**, pero no elimina por completo los outliers.
+## 3. Random Forest
 
-3. **Errores vs Predicción**
-   - La dispersión de errores **sigue existiendo** pero es **un poco más controlada** en comparación a la regresión lineal.
-
-## Random Forest
-
-### Interpretación de los Resultados
+### Interpretación de Resultados
 
 - **$R^2$ Score: 0.25**
-  - El modelo explica aproximadamente **el 25% de la variabilidad** en los días de retraso (`delivery_diff_days`).
-  - **Conclusión**: **Mejora respecto al modelo lineal** y XGBoost, pero aún **lejos de ser un modelo óptimo** para predicción precisa.
+  - **Mejor** de los modelos probados, pero **apenas explica el 25%** de la variabilidad.
+- **MSE: 78.89**
+  - Error promedio reducido (~8.8 días), **pero todavía considerable**.
 
-- **MSE (Error cuadrático medio): 78.89**
-  - En promedio, el **error de predicción** es **de aproximadamente 8.8 días** (ya que $\sqrt{78.89} \approx 8.88$).
-  - **Conclusión**: Se reduce el error comparado con la regresión lineal (antes era ~9.8 días), mostrando un mejor ajuste.
+### Análisis Gráfico
 
-### Justificación basada en las gráficas
+- **Residuos más concentrados** cerca de cero.
+- **Persisten colas y dispersión**.
+- Mejor manejo de no-linealidades, **pero sigue faltando información clave**.
 
-1. **Dispersión Reales vs Predichos**
-   - Hay **mayor concentración** de puntos cercanos a la línea roja ideal respecto a la regresión lineal.
-   - Sin embargo, sigue existiendo **dispersión considerable**, indicando **que aún falta capturar mejor la variabilidad**.
+## **Conclusión Global**
 
-2. **Histograma de Residuos**
-   - **Distribución más concentrada alrededor del 0** que en los modelos anteriores.
-   - Persisten **colas largas** (outliers), lo que sigue afectando la calidad global del modelo.
+- Los **modelos de regresión no son suficientes** para capturar el fenómeno del retraso en entregas.
+- Aunque Random Forest mejora los resultados, **todos los modelos tienen bajo desempeño** (R² muy bajo y MSE relativamente alto).
+- **Las variables actuales no explican adecuadamente el fenómeno**: falta información externa relevante (clima, tráfico, días feriados, condiciones del vendedor, problemas logísticos, etc.).
 
-3. **Errores vs Predicción**
-   - **Mejor distribución de residuos** comparado con regresión lineal.
-   - Aun así, se observa **heterocedasticidad**: los errores no son completamente uniformes a lo largo de los valores predichos.
+## **¿Por qué no tenemos buen resultado?**
 
-### Conclusión Global del Random Forest
+- **Alta varianza natural** en los retrasos de entrega (mucho ruido).
+- **Faltan variables explicativas importantes**.
+- **Relación compleja** y posiblemente **no continua** entre las variables y el retraso.
+- **Outliers** y datos extremos mal controlados.
+- **Problema posiblemente mal formulado como regresión**.
 
-- **Random Forest maneja mejor la no linealidad** de los datos comparado con la regresión lineal simple y XGBoost.
-- Aún **no explica la mayoría de la variabilidad**, probablemente debido a:
-  - Variables independientes limitadas.
-  - Ruido inherente en los datos de retraso logístico.
-  - Posibles variables relevantes no incluidas (clima, tráfico, estado del vendedor, etc.).
+## **¿Qué otro enfoque podríamos intentar?**
+
+### 1. **Clasificación en lugar de regresión**
+
+En vez de predecir "cuántos días de retraso", podrías **predecir categorías**:
+
+- Ejemplo de etiquetas:
+  - Entrega a tiempo (retraso <= 0 días)
+  - Entrega ligeramente retrasada (1-5 días)
+  - Entrega muy retrasada (>5 días)
+  
+Modelo sugerido: **RandomForestClassifier, XGBoostClassifier** o **LightGBMClassifier**.
+
+Ventajas:
+
+- La clasificación **tolera mejor la variabilidad y el ruido**.
+- Puedes interpretar el problema como **riesgo de retraso** en lugar de cantidad exacta de días.
+
+### 2. **Regresión robusta**
+
+Si quieres seguir con regresión:
+
+- Usar **modelos robustos** a outliers como **HuberRegressor** o **RANSACRegressor** de `sklearn`.
+- Estos son menos sensibles a valores extremos y dispersión.
+
+### 3. **Enriquecer el dataset**
+
+- Incorporar **variables externas** como:
+  - Estado del tiempo.
+  - Congestión en la región de entrega.
+  - Capacidad logística del vendedor.
+  - Temporada del año (Navidad, Black Friday).
+
+Esto **podría mejorar sustancialmente** los resultados sin cambiar el tipo de modelo.
+
+## Resumen Final
+
+| Alternativa | Justificación |
+|:------------|:---------------|
+| Clasificación | Permite tolerar el ruido y manejar el retraso como categorías. |
+| Regresión robusta | Mejora tolerancia a outliers y heterocedasticidad. |
+| Enriquecimiento de variables | Fundamental para aumentar la capacidad predictiva de cualquier modelo. |
