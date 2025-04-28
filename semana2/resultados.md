@@ -50,13 +50,36 @@
 3. **Errores vs Predicción**
    - La dispersión de errores **sigue existiendo** pero es **un poco más controlada** en comparación a la regresión lineal.
 
-### Resumen final
+## Random Forest
 
-- **Problema principal**: El retraso de entregas **no sigue una relación lineal** simple con las variables elegidas.
-- **Siguiente paso**: Probar modelos **no lineales** como:
-  - **Random Forest Regressor**
-  - **SVR (Support Vector Regression)**
-  - **Árboles de decisión**
-  - **Regresión polinomial**
+### Interpretación de los Resultados
 
-Estos modelos pueden capturar relaciones **más complejas** o **no lineales** que la regresión lineal no puede.
+- **$R^2$ Score: 0.25**
+  - El modelo explica aproximadamente **el 25% de la variabilidad** en los días de retraso (`delivery_diff_days`).
+  - **Conclusión**: **Mejora respecto al modelo lineal** y XGBoost, pero aún **lejos de ser un modelo óptimo** para predicción precisa.
+
+- **MSE (Error cuadrático medio): 78.89**
+  - En promedio, el **error de predicción** es **de aproximadamente 8.8 días** (ya que $\sqrt{78.89} \approx 8.88$).
+  - **Conclusión**: Se reduce el error comparado con la regresión lineal (antes era ~9.8 días), mostrando un mejor ajuste.
+
+### Justificación basada en las gráficas
+
+1. **Dispersión Reales vs Predichos**
+   - Hay **mayor concentración** de puntos cercanos a la línea roja ideal respecto a la regresión lineal.
+   - Sin embargo, sigue existiendo **dispersión considerable**, indicando **que aún falta capturar mejor la variabilidad**.
+
+2. **Histograma de Residuos**
+   - **Distribución más concentrada alrededor del 0** que en los modelos anteriores.
+   - Persisten **colas largas** (outliers), lo que sigue afectando la calidad global del modelo.
+
+3. **Errores vs Predicción**
+   - **Mejor distribución de residuos** comparado con regresión lineal.
+   - Aun así, se observa **heterocedasticidad**: los errores no son completamente uniformes a lo largo de los valores predichos.
+
+### Conclusión Global del Random Forest
+
+- **Random Forest maneja mejor la no linealidad** de los datos comparado con la regresión lineal simple y XGBoost.
+- Aún **no explica la mayoría de la variabilidad**, probablemente debido a:
+  - Variables independientes limitadas.
+  - Ruido inherente en los datos de retraso logístico.
+  - Posibles variables relevantes no incluidas (clima, tráfico, estado del vendedor, etc.).
