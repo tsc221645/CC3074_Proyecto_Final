@@ -30,11 +30,11 @@ Get Top Frequent
 ----------------
                 Column Name                         Top Value  Frequency
 0                 review_id                           missing        646
-1                 review_id  308316408775d1600dad81bd3184556d          3
-2                 review_id  4d0e6dd087008d1f992d25ef6e1f619f          3
+1                 review_id  44e9f871226d8a130de3fc39dfbdf0c5          3
+2                 review_id  ddc52555ca27b0fe67d5255147682d2d          3
 3                  order_id  c88b1d1b157a9999ce368f218a407141          3
-4                  order_id  03c939fd7fd3b38f8485a0f95798f1f6          3
-5                  order_id  df56136b8031ecd28e200bb18e6ddb2e          3
+4                  order_id  df56136b8031ecd28e200bb18e6ddb2e          3
+5                  order_id  03c939fd7fd3b38f8485a0f95798f1f6          3
 6      review_comment_title                        <IMPUTADO>      85805
 7      review_comment_title                         Recomendo        423
 8      review_comment_title                         recomendo        341
@@ -43,10 +43,10 @@ Get Top Frequent
 11   review_comment_message                               Bom        189
 12     review_creation_date               2017-12-19 00:00:00        450
 13     review_creation_date               2018-08-28 00:00:00        449
-14     review_creation_date               2018-05-15 00:00:00        425
+14     review_creation_date               2017-12-20 00:00:00        425
 15  review_answer_timestamp               2017-06-15 23:21:05          4
 16  review_answer_timestamp               2017-09-05 15:27:17          3
-17  review_answer_timestamp               2018-06-17 23:48:04          3
+17  review_answer_timestamp               2017-09-08 00:24:52          3
 
 Get Unique
 ----------

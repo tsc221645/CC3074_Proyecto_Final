@@ -31,7 +31,7 @@ order_status                   96484      2                         delivered  9
 order_purchase_timestamp       96484  95962               2017-11-20 11:46:30      3
 order_approved_at              96484  88294               2018-02-27 04:31:10      9
 order_delivered_carrier_date   96484  80114               2018-05-09 15:48:00     47
-order_delivered_customer_date  96484  95671               2017-06-19 18:47:51      3
+order_delivered_customer_date  96484  95671               2018-05-14 20:02:44      3
 order_estimated_delivery_date  96484    445               2017-12-20 00:00:00    507
 
 Get Top Frequent
@@ -46,17 +46,17 @@ Get Top Frequent
 6                    order_status                         delivered      96478
 7                    order_status                          canceled          6
 8        order_purchase_timestamp               2017-11-20 11:46:30          3
-9        order_purchase_timestamp               2018-03-31 15:08:21          3
-10       order_purchase_timestamp               2018-08-02 12:06:07          3
+9        order_purchase_timestamp               2018-08-02 12:06:09          3
+10       order_purchase_timestamp               2018-03-31 15:08:21          3
 11              order_approved_at               2018-02-27 04:31:10          9
-12              order_approved_at               2018-01-10 10:32:03          7
-13              order_approved_at               2018-02-06 05:31:52          7
+12              order_approved_at               2017-12-05 10:30:42          7
+13              order_approved_at               2017-11-07 07:30:38          7
 14   order_delivered_carrier_date               2018-05-09 15:48:00         47
 15   order_delivered_carrier_date               2018-05-10 18:29:00         32
 16   order_delivered_carrier_date               2018-05-07 12:31:00         21
-17  order_delivered_customer_date               2017-06-19 18:47:51          3
-18  order_delivered_customer_date               2018-05-14 20:02:44          3
-19  order_delivered_customer_date               2017-12-02 00:26:45          3
+17  order_delivered_customer_date               2018-05-14 20:02:44          3
+18  order_delivered_customer_date               2016-10-27 17:32:07          3
+19  order_delivered_customer_date               2018-05-08 23:38:46          3
 20  order_estimated_delivery_date               2017-12-20 00:00:00        507
 21  order_estimated_delivery_date               2018-03-12 00:00:00        500
 22  order_estimated_delivery_date               2018-05-29 00:00:00        498
