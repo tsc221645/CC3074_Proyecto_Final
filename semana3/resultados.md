@@ -122,3 +122,58 @@ El modelo Random Forest con distancia no mejora los resultados respecto al model
 
 **Conclusión:**
 Random Forest optimizado es el modelo más equilibrado, ya que logra identificar correctamente tanto entregas puntuales como casos de retraso. Los demás modelos tienden a favorecer la clase mayoritaria y presentan dificultades en la clasificación de retrasos.
+
+### Comparación de modelos de clasificación
+
+| Modelo               | F1 Grave | F1 Ligero | F1 Puntual | F1 Macro | Accuracy |
+|----------------------|----------|-----------|------------|----------|----------|
+| Random Forest        | 0.26     | 0.25      | 0.96       | 0.49     | 0.92     |
+| XGBoost              | 0.15     | 0.10      | 0.93       | 0.39     | 0.86     |
+| Logistic Regression  | 0.10     | 0.04      | 0.73       | 0.29     | 0.58     |
+| KNN                  | 0.16     | 0.11      | 0.84       | 0.37     | 0.72     |
+| Naive Bayes          | 0.10     | 0.05      | 0.83       | 0.33     | 0.71     |
+| Decision Tree        | 0.18     | 0.16      | 0.91       | 0.42     | 0.83     |
+
+### Matrices de Confusión por Modelo
+
+* **Random Forest**
+
+  ![Matriz RF](./images/confusion_rf_distance.png)
+
+* **XGBoost**
+
+  ![Matriz XGB](./images/confusion_xgb_distance.png)
+
+* **Logistic Regression**
+
+  ![Matriz Logistic](./images/confusion_logistic.png)
+
+* **KNN**
+
+  ![Matriz KNN](./images/confusion_knn.png)
+
+* **Naive Bayes**
+
+  ![Matriz NB](./images/confusion_nb.png)
+
+* **Árbol de Decisión**
+
+  ![Matriz DT](./images/confusion_dt.png)
+
+### Observaciones
+
+* **Random Forest**: Destaca por su alto F1 en la clase `puntual` (0.96) y un F1 macro de 0.49, indicando un desempeño equilibrado entre las clases.
+
+* **XGBoost**: Aunque presenta un buen F1 en la clase `puntual` (0.93), su desempeño en las clases `grave` y `ligero` es limitado, reflejado en un F1 macro de 0.39.
+
+* **Logistic Regression**: Muestra un bajo desempeño general, especialmente en las clases `grave` y `ligero`, con un F1 macro de 0.29.
+
+* **KNN y Naive Bayes**: Ambos modelos presentan un desempeño moderado en la clase `puntual`, pero limitado en las otras clases, con F1 macro de 0.37 y 0.33 respectivamente.
+
+* **Decision Tree**: Ofrece un equilibrio razonable entre las clases, con un F1 macro de 0.42, aunque inferior al de Random Forest.
+
+## Conclusión
+
+El análisis y la gráfica comparativa refuerzan la conclusión de que **Random Forest** es el modelo más equilibrado y efectivo para predecir tanto entregas puntuales como retrasos, especialmente en un contexto de clases desbalanceadas. Aunque otros modelos como Decision Tree ofrecen un desempeño razonable, ninguno iguala la consistencia de Random Forest en todas las clases.
+
+La inclusión de la gráfica de F1-Score por clase complementa el análisis previo basado en el recall, proporcionando una visión más completa del desempeño de los modelos.
