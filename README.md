@@ -7,6 +7,12 @@
 * Luis Pedro Montenegro
 * Josúe Say
 
+## 🖥️ **Ambiente de Desarrollo**
+
+* **Lenguaje:** Python 3.13.2
+* **Notebooks:** Jupyter Notebook
+* **Gestión de Entorno:** `.venv` (Entorno Virtual de Python)
+
 ## 🎯 **Objetivo del Proyecto**
 
 Desarrollar un modelo predictivo capaz de **estimar precios óptimos de productos** en la plataforma Olist, considerando variables como características físicas de los productos, ubicación de clientes y vendedores, métodos de pago, comportamientos de compra y satisfacción del cliente.
